@@ -5,9 +5,9 @@ var mobileThreshold = 300, //set to 500 for testing
 //standard margins
 var margin = {
     top: 30,
-    right: 50,
+    right: 30,
     bottom: 20,
-    left: 135
+    left: 30
 };
 //jquery shorthand
 var $graphic = $('#graphic');
