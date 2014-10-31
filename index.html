@@ -16,14 +16,16 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!--MODERNIZR-->
     <script src ="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js" type="text/javascript" ></script>
-    <!--NBC PYM -->
-    <script src="//data.nbcstations.com/national/KNTV/libraries/pym.js"></script>
     <!--D3 CDN-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.js"></script>
     <!--END JS-->
  
     <!--BOOTSTRAP CSS-->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- linechart.js -->
+    <link rel="stylesheet" href="linechart.css">
+    <script src="js/lineChart.js"></script>
     
 
 
@@ -87,71 +89,10 @@
 <!--D3 Chart Styles-->
     <style type="text/css">
 
-        /*call this on slow transitions*/
-        .no-mouse {
-            pointer-events: none;
-        }  
-         
-        .axis {
-            font: 10px sans-serif;
-        }
-
-        .y.axis path,
-        .y.axis line {
-            fill: none;
-            stroke: lightgray;
-            shape-rendering: crispEdges;
-        }
-
-        .y.axis line {
-            stroke-width: 1;
-        } 
-
-        .y.axis .tick {
-            fill: gray;
-        }
-
-        .x.axis path,
-        .x.axis line {
-            shape-rendering: crispEdges;
-            stroke: lightgray;
-            fill: none;
-        }
-        .x.axis text {
-            fill: gray;
-        }
-
-        /*Grid Style*/
-        .grid .tick {
-            stroke: lightgray;
-            stroke-opacity: 0.7;
-        }
-
-        .grid path {
-            stroke-width: 0;
-        }
-
-        .grid path {
-            stroke-width: 1;
-        }
-
-        .label {
-            font: 10px sans-serif;
-            fill: gray;
-        }
-
-        /*popup style*/
-        div.tooltip {
-            position: absolute;
-            text-align: center;
-            width: 75px;
-            padding: 2px;
-            font: 12px sans-serif;
-            color: white;
-            background: black;
-            border: 0px;
-            border-radius: 8px;
-            pointer-events: none;
+       
+        .yAxisLabel {
+            font: 18px sans-serif;
+            fill: black;
         }
 
 
@@ -162,7 +103,26 @@
     <h2>SUBHEAD</h2>
     <p>FIRST GRAF</p>
 
-    <div id="graphic"></div>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="graphic1"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="graphic2"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div id="graphic3"></div>
+            </div>
+            <div class="col-xs-6">
+                <div id="graphic4"></div>
+            </div>
+        </div>
+    </div>
 
 
    <!-- <div class="footnotes">
@@ -171,7 +131,7 @@
     </div> -->
 
     <div class="footer">
-        <p>Source: DATA SOURCE</a></p>
+        <p>Source: US Customs and Border Protection</a></p>
         <p>Credit: <a href="http://www.twitter.com/scottpham">Scott Pham</a>/NBC Bay Area</p>
     </div>
 

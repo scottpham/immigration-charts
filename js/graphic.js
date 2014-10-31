@@ -1,14 +1,3 @@
-var mobileThreshold = 300, //set to 500 for testing
-    aspect_width = 16,
-    aspect_height = 9;
-
-//standard margins
-var margin = {
-    top: 30,
-    right: 30,
-    bottom: 20,
-    left: 30
-};
 //jquery shorthand
 var $graphic = $('#graphic');
 //base colors
@@ -26,11 +15,14 @@ var colors = {
 //check for svg
 $(window).load(function() {
     draw_graphic();
-}
+});
 
 function draw_graphic(){
     if (Modernizr.svg){
-        $graphic.empty();
+        $("#graphic1").empty();
+        $("#graphic2").empty();
+        $("#graphic3").empty();
+        $("#graphic4").empty();
         var width = $graphic.width();
         render(width);
         window.onresize = draw_graphic; //very important! the key to responsiveness
@@ -39,78 +31,108 @@ function draw_graphic(){
 
 function render(width) {
 
-    //empty object for storing mobile dependent variables
-    var mobile = {};
-    //check for mobile
-    function ifMobile (w) {
-        if(w < mobileThreshold){
-        }
-        else{
-        }
-    } 
-    //call mobile check
-    ifMobile(width);
-    //calculate height against container width
-    var height = Math.ceil((width * aspect_height) / aspect_width) - margin.top - margin.bottom;
+
+/////mexico//////
+var mexico = [{"year":2009,"people":16114},
+{"year":2010,"people":13724},
+{"year":2011,"people":11768},
+{"year":2012,"people":13974},
+{"year":2013,"people":17240},
+{"year":2014,"people":15634}];
 
 
-    var x = d3.scale.linear().range([0, width]),
-        y = d3.scale.ordinal().rangeRoundBands([0, height], 0.15);
+    var graphic1 = d3.custom.lineChart()
+        .xAccess(function(d) {return d.year; })
+        .yAccess(function(d) {return d.people; })
+        .yAxisLabel("Mexico")
+        .tooltipFormat(d3.format(",f"))
+        .strokeWidth(5)
+        .aspect(4,3)
+        .margin({top:10, left: 60, right: 30, bottom: 20})
+        .tooltipString("minors")
+        .mobileThreshold(180)
+        .tickSize(6)
+        ;
 
-    var format = d3.format("0.2f"); //formats to two decimal places
+    d3.select("#graphic1")
+        .datum(mexico)
+        .call(graphic1);
 
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .ticks(tickNumber)
-        .tickFormat()
-        .orient("top")
-        .tickSize(5, 0, 0);
+////honduras////
+var honduras = [{"year":2009,"people":968},
+{"year":2010,"people":1017},
+{"year":2011,"people":974},
+{"year":2012,"people":2997},
+{"year":2013,"people":6747},
+{"year":2014,"people":18244}];
 
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left")
-        .tickSize(5, 0, 0);
+    var graphic2 = d3.custom.lineChart()
+        .xAccess(function(d) {return d.year; })
+        .yAccess(function(d) {return d.people; })
+        .yAxisLabel("Honduras")
+        .tooltipFormat(d3.format(",f"))
+        .strokeWidth(5)
+        .aspect(4,3)
+        .margin({top:10, left: 60, right: 30, bottom: 20})
+        .tooltipString("minors")
+        .mobileThreshold(180)
+        .strokeColor(colors.red2)
+        .tickSize(6);
 
-    //create main svg container
-    var svg = d3.select("#graphic").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    d3.select("#graphic2")
+        .datum(honduras)
+        .call(graphic2);
 
-    //tooltip
-    var div = d3.select("#graphic").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
+////guatemala////
+var guatemala = [{"year":2009,"people":1115},
+{"year":2010,"people":1517},
+{"year":2011,"people":1565},
+{"year":2012,"people":3835},
+{"year":2013,"people":8068},
+{"year":2014,"people":17057}];
 
-    //gridlines (call this later)
-    var make_x_axis = function() { 
-        return d3.svg.axis()
-            .scale(x)
-                .orient("bottom")
-                .ticks(tickNumber)
-            }
+    var graphic3 = d3.custom.lineChart()
+        .xAccess(function(d) {return d.year; })
+        .yAccess(function(d) {return d.people; })
+        .yAxisLabel("Guatemala")
+        .tooltipFormat(d3.format(",f"))
+        .strokeWidth(5)
+        .aspect(4,3)
+        .margin({top:10, left: 60, right: 30, bottom: 20})
+        .tooltipString("minors")
+        .mobileThreshold(180)
+        .strokeColor(colors.orange2)
+        .tickSize(6);
 
-    //asynchronous csv call
-    d3.csv("DATAFILE.CSV", type, function(error, data) {
+    d3.select("#graphic3")
+        .datum(guatemala)
+        .call(graphic3);
 
-        //BUILD GRID
-        svg.append("g")
-            .attr("class", "grid")
-            .attr("transform", "translate(0," + height + ")")
-            .call(make_x_axis()
-                .tickSize((-height - 10), 0, 0) //grid lines are actually ticks
-                .tickFormat("")
-            )
+////el salvador////
+var salvador = [{"year":2009,"people":1221},
+{"year":2010,"people":1910},
+{"year":2011,"people":1394},
+{"year":2012,"people":3314},
+{"year":2013,"people":5990},
+{"year":2014,"people":16404}]
     
-    //end of csv call function
-    });
+    var graphic4 = d3.custom.lineChart()
+        .xAccess(function(d) {return d.year; })
+        .yAccess(function(d) {return d.people; })
+        .yAxisLabel("El Salvador")
+        .tooltipFormat(d3.format(",f"))
+        .strokeWidth(5)
+        .aspect(4,3)
+        .margin({top:10, left: 60, right: 30, bottom: 20})
+        .tooltipString("minors")
+        .mobileThreshold(180)
+        .strokeColor(colors.teal2)
+        .tickSize(6);
 
-    //coercion function called back during csv call
-    function type(d){
-        d.value = +d.value;
-        return d;
-    }
+    d3.select("#graphic4")
+        .datum(salvador)
+        .call(graphic4);
+
 
 }//end function render    
 
