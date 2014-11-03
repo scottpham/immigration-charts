@@ -46,7 +46,7 @@ var mexico = [{"year":2009,"people":16114},
         .yAccess(function(d) {return d.people; })
         .yAxisLabel("Mexico")
         .tooltipFormat(d3.format(",f"))
-        .strokeWidth(5)
+        .strokeWidth(4)
         .aspect(4,3)
         .margin({top:10, left: 60, right: 30, bottom: 20})
         .tooltipString("minors")
@@ -71,7 +71,7 @@ var honduras = [{"year":2009,"people":968},
         .yAccess(function(d) {return d.people; })
         .yAxisLabel("Honduras")
         .tooltipFormat(d3.format(",f"))
-        .strokeWidth(5)
+        .strokeWidth(4)
         .aspect(4,3)
         .margin({top:10, left: 60, right: 30, bottom: 20})
         .tooltipString("minors")
@@ -96,13 +96,13 @@ var guatemala = [{"year":2009,"people":1115},
         .yAccess(function(d) {return d.people; })
         .yAxisLabel("Guatemala")
         .tooltipFormat(d3.format(",f"))
-        .strokeWidth(5)
+        .strokeWidth(4)
         .aspect(4,3)
         .margin({top:10, left: 60, right: 30, bottom: 20})
         .tooltipString("minors")
         .mobileThreshold(180)
         .strokeColor(colors.orange2)
-        .tickSize(6);
+        .tickSize(4);
 
     d3.select("#graphic3")
         .datum(guatemala)
@@ -121,13 +121,13 @@ var salvador = [{"year":2009,"people":1221},
         .yAccess(function(d) {return d.people; })
         .yAxisLabel("El Salvador")
         .tooltipFormat(d3.format(",f"))
-        .strokeWidth(5)
+        .strokeWidth(4)
         .aspect(4,3)
         .margin({top:10, left: 60, right: 30, bottom: 20})
         .tooltipString("minors")
         .mobileThreshold(180)
         .strokeColor(colors.teal2)
-        .tickSize(6);
+        .tickSize(4);
 
     d3.select("#graphic4")
         .datum(salvador)
