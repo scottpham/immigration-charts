@@ -216,7 +216,7 @@ d3.custom.lineChart = function module() {
 	                i = bisectDate(_data, x0, 1),
 	                d0 = _data[i - 1],
 	                d1 = _data[i],
-	                d = x0 - d0[d[0]] > d1[d[0]] - x0 ? d1 : d0;
+	                d = x0 - d0[0] > d1[0] - x0 ? d1 : d0;
 
 	            focus.attr("transform", "translate(" + x(d[0]) + "," + y(d[1]) + ")");
 	            //show div

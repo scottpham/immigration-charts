@@ -20,9 +20,6 @@ $(window).load(function() {
 function draw_graphic(){
     if (Modernizr.svg){
         $("#graphic1").empty();
-        $("#graphic2").empty();
-        $("#graphic3").empty();
-        $("#graphic4").empty();
         var width = $graphic.width();
         render(width);
         window.onresize = draw_graphic; //very important! the key to responsiveness
@@ -32,7 +29,7 @@ function draw_graphic(){
 function render(width) {
 
 
-/////mexico//////
+/////data example//////
 var mexico = [{"year":2009,"people":16114},
 {"year":2010,"people":13724},
 {"year":2011,"people":11768},
@@ -57,81 +54,6 @@ var mexico = [{"year":2009,"people":16114},
     d3.select("#graphic1")
         .datum(mexico)
         .call(graphic1);
-
-////honduras////
-var honduras = [{"year":2009,"people":968},
-{"year":2010,"people":1017},
-{"year":2011,"people":974},
-{"year":2012,"people":2997},
-{"year":2013,"people":6747},
-{"year":2014,"people":18244}];
-
-    var graphic2 = d3.custom.lineChart()
-        .xAccess(function(d) {return d.year; })
-        .yAccess(function(d) {return d.people; })
-        .yAxisLabel("Honduras")
-        .tooltipFormat(d3.format(",f"))
-        .strokeWidth(4)
-        .aspect(4,3)
-        .margin({top:10, left: 60, right: 30, bottom: 20})
-        .tooltipString("minors")
-        .mobileThreshold(180)
-        .strokeColor(colors.red2)
-        .tickSize(6);
-
-    d3.select("#graphic2")
-        .datum(honduras)
-        .call(graphic2);
-
-////guatemala////
-var guatemala = [{"year":2009,"people":1115},
-{"year":2010,"people":1517},
-{"year":2011,"people":1565},
-{"year":2012,"people":3835},
-{"year":2013,"people":8068},
-{"year":2014,"people":17057}];
-
-    var graphic3 = d3.custom.lineChart()
-        .xAccess(function(d) {return d.year; })
-        .yAccess(function(d) {return d.people; })
-        .yAxisLabel("Guatemala")
-        .tooltipFormat(d3.format(",f"))
-        .strokeWidth(4)
-        .aspect(4,3)
-        .margin({top:10, left: 60, right: 30, bottom: 20})
-        .tooltipString("minors")
-        .mobileThreshold(180)
-        .strokeColor(colors.orange2)
-        .tickSize(4);
-
-    d3.select("#graphic3")
-        .datum(guatemala)
-        .call(graphic3);
-
-////el salvador////
-var salvador = [{"year":2009,"people":1221},
-{"year":2010,"people":1910},
-{"year":2011,"people":1394},
-{"year":2012,"people":3314},
-{"year":2013,"people":5990},
-{"year":2014,"people":16404}]
-    
-    var graphic4 = d3.custom.lineChart()
-        .xAccess(function(d) {return d.year; })
-        .yAccess(function(d) {return d.people; })
-        .yAxisLabel("El Salvador")
-        .tooltipFormat(d3.format(",f"))
-        .strokeWidth(4)
-        .aspect(4,3)
-        .margin({top:10, left: 60, right: 30, bottom: 20})
-        .tooltipString("minors")
-        .mobileThreshold(180)
-        .strokeColor(colors.teal2)
-        .tickSize(4);
-
-    d3.select("#graphic4")
-        .datum(salvador)
-        .call(graphic4);
 
 
 }//end function render    
